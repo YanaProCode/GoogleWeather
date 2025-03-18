@@ -10,10 +10,10 @@ class SearchPage:
     def navigate(self):
         self.page.goto("https://www.google.com/")
 
-    def allow_stealth_mode(self):
-        self.stealth_mode = stealth_sync(page)
+    #def allow_stealth_mode(self):
+        #self.stealth_mode = stealth_sync(page)
 
     def search_weather(self, location: str):
-        self.page.wait_for_selector(self.search_input_xpath}, timeout=10000)
+        self.page.wait_for_selector(self.search_input_xpath, timeout=10000)
         self.page.fill(self.search_input_xpath, location)
         self.page.press(self.search_input_xpath, "Enter")

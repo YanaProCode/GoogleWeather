@@ -4,9 +4,9 @@ class WeatherPage:
     def __init__(self, page: Page):
         self.page = page
         self.temperature_selector = "#wob_tm"
-        self.city_selector = "#wob_loc"
+        self.city_selector = ".BBwThe"
         self.forecast_selector = "#wob_dp"
-        self.weather_icon_selector = "#wob_dp .wob_tci"
+        self.weather_icon_selector = "#wob_dp .wob_df"
 
     def get_temperature(self) -> int:
         self.page.wait_for_selector(self.temperature_selector)
