@@ -6,17 +6,14 @@ from PO.search import SearchPage
 from PO.weather import WeatherPage
 
 
-def test_weather_above_zero(browser_context):
-    page = browser_context.new_page()
+def test_weather_above_zero(page):
     search_page = SearchPage(page)
     weather_page = WeatherPage(page)
-    search_page.navigate()
-    search_page.search_weather("weather Wroclaw")
+    search_page.navigate().search_weather("weather Wroclaw")
     temperature = weather_page.get_temperature()
     assert temperature > 0, f"Expected temperature to be above 0, but got {temperature}"
 
-def test_correct_city_displayed(browser_context):
-    page = browser_context.new_page()
+def test_correct_city_displayed(page):
     search_page = SearchPage(page)
     weather_page = WeatherPage(page)
     search_page.navigate()
@@ -24,8 +21,7 @@ def test_correct_city_displayed(browser_context):
     city = weather_page.get_city()
     assert "Wrocław" in city, f"Expected city to be Wroclaw, but got {city}"
 
-def test_forecast_for_multiple_days(browser_context):
-    page = browser_context.new_page()
+def test_forecast_for_multiple_days(page):
     search_page = SearchPage(page)
     weather_page = WeatherPage(page)
     search_page.navigate()
@@ -33,8 +29,7 @@ def test_forecast_for_multiple_days(browser_context):
     forecast = weather_page.get_forecast_days()
     assert forecast == 8, f"Expected forecast to be 8 days, but got {forecast}"
 
-def test_weather_icons_displayed(browser_context):
-    page = browser_context.new_page()
+def test_weather_icons_displayed(page):
     search_page = SearchPage(page)
     weather_page = WeatherPage(page)
     search_page.navigate()
